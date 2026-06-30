@@ -75,7 +75,6 @@
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* burger */
     .burger {
       display: none;
       flex-direction: column;
@@ -87,8 +86,7 @@
     }
     .burger span {
       display: block;
-      width: 24px;
-      height: 2px;
+      width: 24px; height: 2px;
       background: var(--accent);
       border-radius: 2px;
       transition: all 0.3s;
@@ -135,16 +133,8 @@
       border-radius: 100px;
       margin-bottom: 20px;
     }
-    .section-title {
-      font-size: clamp(28px, 4vw, 44px);
-      color: var(--text);
-      margin-bottom: 16px;
-    }
-    .section-sub {
-      font-size: 18px;
-      color: var(--text-secondary);
-      max-width: 600px;
-    }
+    .section-title { font-size: clamp(28px, 4vw, 44px); color: var(--text); margin-bottom: 16px; }
+    .section-sub { font-size: 18px; color: var(--text-secondary); max-width: 600px; }
     .section-header { margin-bottom: 56px; }
 
     /* ── HERO ── */
@@ -203,29 +193,15 @@
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.5; transform: scale(1.3); }
     }
-    .hero-title {
-      font-size: clamp(32px, 5vw, 58px);
-      color: var(--text);
-      margin-bottom: 24px;
-    }
+    .hero-title { font-size: clamp(32px, 5vw, 58px); color: var(--text); margin-bottom: 24px; }
     .hero-title span {
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .hero-desc {
-      font-size: 17px;
-      color: var(--text-secondary);
-      margin-bottom: 36px;
-      line-height: 1.7;
-    }
-    .hero-btns {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 48px;
-    }
+    .hero-desc { font-size: 17px; color: var(--text-secondary); margin-bottom: 36px; line-height: 1.7; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -261,12 +237,7 @@
       transition: all 0.2s;
     }
     .btn-secondary:hover { background: var(--accent-light); transform: translateY(-2px); }
-
-    .hero-values {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+    .hero-values { display: flex; flex-direction: column; gap: 14px; }
     .hero-value-item {
       display: flex;
       align-items: flex-start;
@@ -288,7 +259,6 @@
     }
     .hero-value-text strong { display: block; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
     .hero-value-text span { font-size: 13px; color: var(--text-secondary); }
-
     .hero-for {
       margin-top: 48px;
       padding: 28px;
@@ -299,18 +269,20 @@
     }
     .hero-for h4 { font-size: 16px; color: var(--text); margin-bottom: 16px; }
     .for-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .for-list li {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 14px; color: var(--text-secondary);
-    }
-    .for-list li::before {
-      content: '→';
-      color: var(--accent2);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
+    .for-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); }
+    .for-list li::before { content: '→'; color: var(--accent2); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
     .for-list li strong { color: var(--text); font-weight: 600; }
+
+    /* ── TOOL LOGOS (SVG inline) ── */
+    .tool-logo-svg {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+    .tool-logo-svg svg { width: 100%; height: 100%; }
 
     /* ── TOOLS ── */
     #tools { background: #fff; }
@@ -351,23 +323,6 @@
       border-color: rgba(66,34,147,0.25);
     }
     .tool-card.featured::before { opacity: 1; }
-    .tool-logo {
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      object-fit: contain;
-      background: white;
-      padding: 6px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-    .tool-logo-placeholder {
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px;
-      background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      flex-shrink: 0;
-    }
     .tool-name { font-family: 'Russo One', sans-serif; font-size: 18px; color: var(--text); }
     .tool-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; flex: 1; }
     .tool-link {
@@ -403,6 +358,7 @@
       letter-spacing: 0.05em;
       margin-bottom: 4px;
     }
+    .tool-header { display: flex; align-items: center; gap: 14px; }
 
     /* ── CASES ── */
     #cases { background: var(--bg); }
@@ -455,7 +411,7 @@
     .case-tool-tag {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       background: var(--accent-light);
       color: var(--accent);
       font-size: 12px;
@@ -464,6 +420,8 @@
       border-radius: 100px;
       width: fit-content;
     }
+    .case-tool-tag .tag-logo { width: 16px; height: 16px; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .case-tool-tag .tag-logo svg { width: 100%; height: 100%; }
     .case-title { font-family: 'Russo One', sans-serif; font-size: 17px; color: var(--text); }
     .case-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; flex: 1; }
     .case-effect {
@@ -575,12 +533,7 @@
     }
     .copy-btn:hover { background: rgba(255,255,255,0.2); }
     .copy-btn.copied { background: rgba(91,47,212,0.5); }
-    .modal-action {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 8px;
-    }
+    .modal-action { display: inline-flex; align-items: center; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
 
     /* ── AUTHOR ── */
     #author { background: white; }
@@ -590,26 +543,27 @@
       gap: 64px;
       align-items: start;
     }
-    .author-photo-wrap {
-      position: relative;
-    }
+    .author-photo-wrap { position: relative; }
     .author-photo {
       width: 100%;
       aspect-ratio: 3/4;
       object-fit: cover;
       border-radius: 20px;
       box-shadow: var(--shadow-hover);
+      display: block;
     }
     .author-photo-placeholder {
       width: 100%;
       aspect-ratio: 3/4;
       border-radius: 20px;
-      background: linear-gradient(135deg, var(--accent-light), #ddd6f5);
+      background: linear-gradient(135deg, #422293 0%, #5B2FD4 100%);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 80px;
       box-shadow: var(--shadow-hover);
+      color: white;
+      font-size: 64px;
     }
     .author-badge-float {
       position: absolute;
@@ -624,35 +578,13 @@
       line-height: 1.5;
     }
     .author-name { font-size: clamp(26px, 3vw, 38px); margin-bottom: 8px; }
-    .author-role {
-      font-size: 16px;
-      color: var(--accent2);
-      font-weight: 600;
-      margin-bottom: 24px;
-    }
-    .author-bio {
-      font-size: 15px;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 32px;
-    }
-    .author-facts {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 40px;
-    }
-    .author-fact {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 14px; color: var(--text);
-    }
+    .author-role { font-size: 16px; color: var(--accent2); font-weight: 600; margin-bottom: 24px; }
+    .author-bio { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 32px; }
+    .author-facts { display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
+    .author-fact { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text); }
     .author-fact::before { content: '◆'; color: var(--accent2); font-size: 10px; margin-top: 4px; flex-shrink: 0; }
     .portfolio-title { font-size: 20px; margin-bottom: 24px; }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .portfolio-card {
       background: var(--bg);
       border-radius: 14px;
@@ -670,35 +602,47 @@
     .portfolio-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
     .portfolio-card-link { font-size: 12px; color: var(--accent); font-weight: 600; margin-top: auto; }
 
+    /* ── EVENT PHOTOS ── */
     .photos-section { margin-top: 64px; }
     .photos-title { font-size: 22px; margin-bottom: 24px; }
-    .photos-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
+    .photos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .photo-item {
       border-radius: 14px;
       overflow: hidden;
       aspect-ratio: 4/3;
       box-shadow: var(--shadow);
+      position: relative;
+      background: linear-gradient(135deg, #2A1660 0%, #422293 50%, #5B2FD4 100%);
     }
     .photo-item img {
       width: 100%; height: 100%;
       object-fit: cover;
+      display: block;
       transition: transform 0.4s;
     }
     .photo-item:hover img { transform: scale(1.04); }
+    /* Gradient overlay on hover */
+    .photo-item::after {
+      content: attr(data-caption);
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,26,46,0.75) 0%, transparent 60%);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .photo-item:hover::after { opacity: 1; }
 
     /* ── LEADS ── */
     #leads { background: var(--bg); }
     .leads-title-block { text-align: center; margin-bottom: 56px; }
     .leads-title-block .section-sub { margin: 0 auto; }
-    .leads-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
+    .leads-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .lead-card {
       background: white;
       border-radius: 20px;
@@ -726,12 +670,18 @@
     }
     .lead-title { font-size: 20px; color: var(--text); }
     .lead-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; flex: 1; }
-    .lead-reply {
+    .lead-proof {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-size: 13px;
-      color: var(--text-secondary);
-      display: flex; align-items: center; gap: 6px;
+      font-weight: 600;
+      color: var(--accent2);
+      background: var(--accent-light);
+      border-radius: 8px;
+      padding: 10px 14px;
     }
-    .lead-reply::before { content: '🕐'; }
+    .lead-proof::before { content: '✓'; }
 
     /* ── FOOTER ── */
     footer {
@@ -745,32 +695,11 @@
       gap: 64px;
       margin-bottom: 48px;
     }
-    .footer-brand-name {
-      font-family: 'Russo One', sans-serif;
-      font-size: 20px;
-      color: white;
-      margin-bottom: 12px;
-    }
+    .footer-brand-name { font-family: 'Russo One', sans-serif; font-size: 20px; color: white; margin-bottom: 12px; }
     .footer-brand-desc { font-size: 14px; line-height: 1.6; }
-    .footer-links-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-    .footer-col-title {
-      font-weight: 700;
-      color: white;
-      font-size: 14px;
-      margin-bottom: 16px;
-    }
-    .footer-link {
-      display: block;
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 10px;
-      transition: color 0.2s;
-    }
+    .footer-links-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .footer-col-title { font-weight: 700; color: white; font-size: 14px; margin-bottom: 16px; }
+    .footer-link { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: color 0.2s; }
     .footer-link:hover { color: white; }
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,0.1);
@@ -788,7 +717,6 @@
       nav { padding: 0 20px; }
       .nav-links { display: none; }
       .burger { display: flex; }
-
       section { padding: 64px 0; }
       .hero-inner { grid-template-columns: 1fr; gap: 40px; }
       .hero-values { display: none; }
@@ -804,7 +732,6 @@
       .footer-inner { grid-template-columns: 1fr; gap: 32px; }
       .footer-links-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
     }
-
     @media (max-width: 600px) {
       .tools-grid { grid-template-columns: 1fr; }
       .tool-card.featured { grid-column: span 1; }
@@ -839,6 +766,82 @@
   <a href="#author" onclick="closeMobileMenu()">Автор</a>
   <a href="#leads" onclick="closeMobileMenu()">Контакт</a>
 </div>
+
+<!-- ═══════════════════════════════ SVG LOGOS (hidden defs) ═══════════════════════════════ -->
+<!-- Inline SVG symbols for reuse across cards and tags -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="logo-notebooklm" viewBox="0 0 100 100">
+    <rect width="100" height="100" rx="22" fill="#fff"/>
+    <!-- Orange asterisk / burst — NotebookLM -->
+    <g transform="translate(50,50)">
+      <g id="ray">
+        <rect x="-5" y="-38" width="10" height="28" rx="5" fill="#D97548"/>
+      </g>
+      <use href="#ray" transform="rotate(30)"/>
+      <use href="#ray" transform="rotate(60)"/>
+      <use href="#ray" transform="rotate(90)"/>
+      <use href="#ray" transform="rotate(120)"/>
+      <use href="#ray" transform="rotate(150)"/>
+      <use href="#ray" transform="rotate(180)"/>
+      <use href="#ray" transform="rotate(210)"/>
+      <use href="#ray" transform="rotate(240)"/>
+      <use href="#ray" transform="rotate(270)"/>
+      <use href="#ray" transform="rotate(300)"/>
+      <use href="#ray" transform="rotate(330)"/>
+    </g>
+  </symbol>
+
+  <symbol id="logo-kimi" viewBox="0 0 100 100">
+    <rect width="100" height="100" rx="22" fill="#fff"/>
+    <!-- Blue whale — Kimi -->
+    <ellipse cx="50" cy="54" rx="36" ry="28" fill="#5B7CF6"/>
+    <path d="M72 34 Q82 22 86 18 Q80 28 76 36Z" fill="#5B7CF6"/>
+    <path d="M72 34 Q86 30 90 28 Q82 38 74 38Z" fill="#5B7CF6"/>
+    <ellipse cx="38" cy="52" rx="16" ry="10" fill="white" transform="rotate(-20,38,52)"/>
+    <circle cx="58" cy="46" r="4" fill="white"/>
+    <circle cx="60" cy="44" r="2" fill="#5B7CF6"/>
+    <path d="M20 68 Q14 80 10 84 Q16 76 24 70Z" fill="#5B7CF6"/>
+  </symbol>
+
+  <symbol id="logo-manus" viewBox="0 0 100 100">
+    <rect width="100" height="100" rx="22" fill="#fff"/>
+    <!-- Snap / click gesture — Manus -->
+    <path d="M38 62 C32 54 28 44 30 36 C31 30 36 26 42 28 C44 24 48 22 52 24 C54 20 58 19 62 21 C64 18 69 18 72 21 C75 18 80 20 80 26 L80 50 C80 62 74 70 62 72 C52 74 42 70 38 62Z" fill="#1A1A2E" stroke="none"/>
+    <path d="M38 62 C32 54 28 44 30 36 C31 30 36 26 42 28 C44 24 48 22 52 24 C54 20 58 19 62 21 C64 18 69 18 72 21 C75 18 80 20 80 26 L80 50 C80 62 74 70 62 72 C52 74 42 70 38 62Z" fill="none" stroke="white" stroke-width="3"/>
+    <line x1="58" y1="16" x2="54" y2="10" stroke="#1A1A2E" stroke-width="5" stroke-linecap="round"/>
+    <line x1="66" y1="14" x2="64" y2="8" stroke="#1A1A2E" stroke-width="5" stroke-linecap="round"/>
+    <path d="M42 50 C38 42 38 34 42 30" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="logo-deepseek" viewBox="0 0 100 100">
+    <rect width="100" height="100" rx="22" fill="#fff"/>
+    <!-- Concentric arches — DeepSeek -->
+    <path d="M15 78 A46 46 0 0 1 85 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M25 78 A36 36 0 0 1 75 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M35 78 A26 26 0 0 1 65 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M45 78 A16 16 0 0 1 55 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="logo-claude" viewBox="0 0 100 100">
+    <rect width="100" height="100" rx="22" fill="#fff"/>
+    <!-- Anthropic/Claude terra-cotta burst -->
+    <g transform="translate(50,50)">
+      <g id="cray">
+        <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548"/>
+      </g>
+      <use href="#cray" transform="rotate(0)"/>
+      <use href="#cray" transform="rotate(36)"/>
+      <use href="#cray" transform="rotate(72)"/>
+      <use href="#cray" transform="rotate(108)"/>
+      <use href="#cray" transform="rotate(144)"/>
+      <use href="#cray" transform="rotate(180)"/>
+      <use href="#cray" transform="rotate(216)"/>
+      <use href="#cray" transform="rotate(252)"/>
+      <use href="#cray" transform="rotate(288)"/>
+      <use href="#cray" transform="rotate(324)"/>
+    </g>
+  </symbol>
+</svg>
 
 <!-- ── HERO ── -->
 <section id="hero">
@@ -914,24 +917,70 @@
 
       <!-- DeepSeek -->
       <a href="https://chat.deepseek.com/" target="_blank" class="tool-card">
-        <div class="tool-logo-placeholder">🔵</div>
-        <div class="tool-name">DeepSeek</div>
+        <div class="tool-header">
+          <div class="tool-logo-svg">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" rx="22" fill="#fff"/>
+              <path d="M15 78 A46 46 0 0 1 85 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/>
+              <path d="M25 78 A36 36 0 0 1 75 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/>
+              <path d="M35 78 A26 26 0 0 1 65 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/>
+              <path d="M45 78 A16 16 0 0 1 55 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">DeepSeek</div>
+        </div>
         <p class="tool-desc">Мощная универсальная модель с большим контекстом, веб-поиском и режимом размышлений. Подходит для быстрого анализа требований, создания PRD и декомпозиции задач.</p>
         <span class="tool-link">Открыть DeepSeek</span>
       </a>
 
       <!-- NotebookLM -->
       <a href="https://notebooklm.google.com/" target="_blank" class="tool-card">
-        <div class="tool-logo-placeholder">🟠</div>
-        <div class="tool-name">NotebookLM</div>
+        <div class="tool-header">
+          <div class="tool-logo-svg">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" rx="22" fill="#FFF4EE"/>
+              <g transform="translate(50,50)">
+                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(0)"/>
+                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(30)"/>
+                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(60)"/>
+                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(90)"/>
+                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(120)"/>
+                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(150)"/>
+                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(180)"/>
+                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(210)"/>
+                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(240)"/>
+                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(270)"/>
+                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(300)"/>
+                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(330)"/>
+              </g>
+            </svg>
+          </div>
+          <div class="tool-name">NotebookLM</div>
+        </div>
         <p class="tool-desc">Инструмент для общения с базой знаний (аудио, документы, презентации) и генерации артефактов: подкасты, презентации, инфографика.</p>
         <span class="tool-link">Открыть NotebookLM</span>
       </a>
 
       <!-- Claude (featured) -->
       <div class="tool-card featured" style="cursor:default;">
-        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-          <div class="tool-logo-placeholder" style="background:linear-gradient(135deg,#422293,#5B2FD4);font-size:26px;">🟣</div>
+        <div class="tool-header">
+          <div class="tool-logo-svg" style="background:#FFF4EE;">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" rx="22" fill="#FFF4EE"/>
+              <g transform="translate(50,50)">
+                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(0)"/>
+                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(36)"/>
+                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(72)"/>
+                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(108)"/>
+                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(144)"/>
+                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(180)"/>
+                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(216)"/>
+                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(252)"/>
+                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(288)"/>
+                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(324)"/>
+              </g>
+            </svg>
+          </div>
           <div>
             <div class="tool-tag">Главный инструмент</div>
             <div class="tool-name">Claude</div>
@@ -946,16 +995,48 @@
 
       <!-- Manus -->
       <a href="https://manus.im/app" target="_blank" class="tool-card">
-        <div class="tool-logo-placeholder">🟤</div>
-        <div class="tool-name">Manus</div>
+        <div class="tool-header">
+          <div class="tool-logo-svg">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" rx="22" fill="#fff"/>
+              <!-- Snap fingers outline -->
+              <path d="M54 72 C48 72 40 68 36 60 C30 52 28 44 30 36 C31 30 36 28 41 30 C43 26 48 24 52 26 C54 22 59 21 63 24 C65 20 70 21 72 24 C75 21 80 23 80 28 L80 52 C80 64 72 72 60 72 Z" fill="none" stroke="#1A1A2E" stroke-width="7" stroke-linejoin="round"/>
+              <path d="M41 30 L41 42" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/>
+              <path d="M52 26 L52 40" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/>
+              <path d="M63 24 L63 40" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/>
+              <path d="M72 24 L72 42" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/>
+              <line x1="56" y1="18" x2="52" y2="12" stroke="#1A1A2E" stroke-width="6" stroke-linecap="round"/>
+              <line x1="64" y1="16" x2="62" y2="10" stroke="#1A1A2E" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tool-name">Manus</div>
+        </div>
         <p class="tool-desc">Создание красивых презентаций для демо ваших идей и продуктов. Читает длинные документы, создаёт слайды с дизайном и визуализацию данных.</p>
         <span class="tool-link">Открыть Manus</span>
       </a>
 
       <!-- Kimi -->
       <a href="https://www.kimi.com/" target="_blank" class="tool-card">
-        <div class="tool-logo-placeholder">🟢</div>
-        <div class="tool-name">Kimi</div>
+        <div class="tool-header">
+          <div class="tool-logo-svg">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" rx="22" fill="#EEF1FF"/>
+              <!-- Whale body -->
+              <ellipse cx="50" cy="56" rx="34" ry="26" fill="#5B7CF6"/>
+              <!-- Tail -->
+              <path d="M74 36 Q84 22 88 18 Q82 28 78 38Z" fill="#5B7CF6"/>
+              <path d="M74 36 Q88 32 92 30 Q84 40 76 40Z" fill="#5B7CF6"/>
+              <!-- Belly -->
+              <ellipse cx="38" cy="54" rx="15" ry="9" fill="white" transform="rotate(-15,38,54)"/>
+              <!-- Eye -->
+              <circle cx="60" cy="47" r="4.5" fill="white"/>
+              <circle cx="61" cy="46" r="2.5" fill="#5B7CF6"/>
+              <!-- Fin -->
+              <path d="M22 70 Q16 82 12 86 Q18 78 26 72Z" fill="#5B7CF6"/>
+            </svg>
+          </div>
+          <div class="tool-name">Kimi</div>
+        </div>
         <p class="tool-desc">Швейцарский нож для задач аналитики, исследования и визуализации данных. Отлично справляется с табличными данными и инсайтами.</p>
         <span class="tool-link">Открыть Kimi</span>
       </a>
@@ -981,7 +1062,12 @@
 
       <!-- Case 1: NotebookLM -->
       <div class="case-card" onclick="openModal('modal-notebooklm')">
-        <div class="case-tool-tag">🟠 NotebookLM</div>
+        <div class="case-tool-tag">
+          <span class="tag-logo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="4" fill="#FFF4EE"/><g transform="translate(50,50)"><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(0)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(30)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(60)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(90)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(120)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(150)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(180)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(210)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(240)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(270)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(300)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(330)"/></g></svg>
+          </span>
+          NotebookLM
+        </div>
         <div class="case-title">Погрузиться в требования заказчика за 15 минут</div>
         <p class="case-desc">Загрузить расшифровку встречи или документы заказчика → задать вопросы → получить структурированный BRD.</p>
         <div class="case-effect">Ускорение погружения в проект с дней до часов</div>
@@ -990,7 +1076,12 @@
 
       <!-- Case 2: DeepSeek -->
       <div class="case-card" onclick="openModal('modal-deepseek')">
-        <div class="case-tool-tag">🔵 DeepSeek</div>
+        <div class="case-tool-tag">
+          <span class="tag-logo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="4" fill="#fff"/><path d="M15 78 A46 46 0 0 1 85 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M25 78 A36 36 0 0 1 75 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M35 78 A26 26 0 0 1 65 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M45 78 A16 16 0 0 1 55 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/></svg>
+          </span>
+          DeepSeek
+        </div>
         <div class="case-title">Из требований заказчика — в User Stories и PRD</div>
         <p class="case-desc">Взять BRD из кейса 1 → структурировать User Stories → сгенерировать полный PRD для всей команды.</p>
         <div class="case-effect">Документ для всей команды за 20 минут вместо 2 дней</div>
@@ -999,7 +1090,12 @@
 
       <!-- Case 3: Claude (featured) -->
       <div class="case-card featured-case" onclick="openModal('modal-claude')">
-        <div class="case-tool-tag">🟣 Claude — Главный кейс</div>
+        <div class="case-tool-tag">
+          <span class="tag-logo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="4" fill="#FFF4EE"/><g transform="translate(50,50)"><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(0)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(36)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(72)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(108)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(144)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(180)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(216)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(252)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(288)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(324)"/></g></svg>
+          </span>
+          Claude — Главный кейс
+        </div>
         <div class="case-title">Техническое задание, Бэклог и Роадмап из PRD</div>
         <p class="case-desc">На основе PRD из кейса 2 → разработать ТЗ на разработку → декомпозировать в бэклог → распланировать первые спринты. Три полных документа за один сеанс работы.</p>
         <div class="case-effect">ТЗ + Backlog + Roadmap за 1–2 часа вместо 2 недель</div>
@@ -1008,7 +1104,12 @@
 
       <!-- Case 4: Claude + Mermaid -->
       <div class="case-card" onclick="openModal('modal-mermaid')">
-        <div class="case-tool-tag">🟣 Claude + Mermaid</div>
+        <div class="case-tool-tag">
+          <span class="tag-logo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="4" fill="#FFF4EE"/><g transform="translate(50,50)"><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(0)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(36)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(72)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(108)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(144)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(180)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(216)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(252)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(288)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(324)"/></g></svg>
+          </span>
+          Claude + Mermaid
+        </div>
         <div class="case-title">Специфицировать логику продукта в диаграммы</div>
         <p class="case-desc">Описать ключевую логику продукта текстом → получить Mermaid-диаграммы → вставить в документацию или презентацию.</p>
         <div class="case-effect">Диаграммы за 5 минут вместо 2 часов в Figma</div>
@@ -1017,7 +1118,12 @@
 
       <!-- Case 5: Manus -->
       <div class="case-card" onclick="openModal('modal-manus')">
-        <div class="case-tool-tag">🟤 Manus</div>
+        <div class="case-tool-tag">
+          <span class="tag-logo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="4" fill="#fff"/><path d="M54 72 C48 72 40 68 36 60 C30 52 28 44 30 36 C31 30 36 28 41 30 C43 26 48 24 52 26 C54 22 59 21 63 24 C65 20 70 21 72 24 C75 21 80 23 80 28 L80 52 C80 64 72 72 60 72 Z" fill="none" stroke="#1A1A2E" stroke-width="7" stroke-linejoin="round"/><path d="M41 30 L41 42" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/><path d="M52 26 L52 40" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/><path d="M63 24 L63 40" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/><path d="M72 24 L72 42" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/><line x1="56" y1="18" x2="52" y2="12" stroke="#1A1A2E" stroke-width="6" stroke-linecap="round"/><line x1="64" y1="16" x2="62" y2="10" stroke="#1A1A2E" stroke-width="6" stroke-linecap="round"/></svg>
+          </span>
+          Manus
+        </div>
         <div class="case-title">Собрать презентацию проекта для стейкхолдеров</div>
         <p class="case-desc">Передать Manus PRD и ТЗ → получить готовую презентацию проекта для стейкхолдеров или инвесторов с дизайном.</p>
         <div class="case-effect">Первая версия презентации за 3 минуты</div>
@@ -1026,9 +1132,14 @@
 
       <!-- Case 6: Kimi -->
       <div class="case-card" onclick="openModal('modal-kimi')">
-        <div class="case-tool-tag">🟢 Kimi</div>
-        <div class="case-title">Проанализировать данные и визуализировать инсайты</div>
-        <p class="case-desc">Загрузить табличные данные → проанализировать → получить визуализацию и готовые выводы для принятия решений.</p>
+        <div class="case-tool-tag">
+          <span class="tag-logo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="4" fill="#EEF1FF"/><ellipse cx="50" cy="56" rx="34" ry="26" fill="#5B7CF6"/><path d="M74 36 Q84 22 88 18 Q82 28 78 38Z" fill="#5B7CF6"/><path d="M74 36 Q88 32 92 30 Q84 40 76 40Z" fill="#5B7CF6"/><ellipse cx="38" cy="54" rx="15" ry="9" fill="white" transform="rotate(-15,38,54)"/><circle cx="60" cy="47" r="4.5" fill="white"/><circle cx="61" cy="46" r="2.5" fill="#5B7CF6"/><path d="M22 70 Q16 82 12 86 Q18 78 26 72Z" fill="#5B7CF6"/></svg>
+          </span>
+          Kimi
+        </div>
+        <div class="case-title">Проанализировать данные зарплат и визуализировать инсайты</div>
+        <p class="case-desc">Загрузить таблицу со статистическими данными по зарплатам → проанализировать → получить визуализацию и выводы для принятия решений.</p>
         <div class="case-effect">Аналитический отчёт за 15 минут вместо полудня</div>
         <button class="case-open-btn">Смотреть промпт</button>
       </div>
@@ -1043,8 +1154,13 @@
     <div class="section-label">Автор</div>
     <div class="author-inner">
       <div class="author-photo-wrap">
-        <img src="images/egor.jpg" alt="Егор Красильников" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-        <div class="author-photo-placeholder" style="display:none;">👤</div>
+        <img
+          src="images/egor.jpg"
+          alt="Егор Красильников"
+          class="author-photo"
+          onerror="this.style.display='none';document.getElementById('egor-placeholder').style.display='flex';"
+        />
+        <div id="egor-placeholder" class="author-photo-placeholder" style="display:none;">👤</div>
         <div class="author-badge-float">CEO AllSee.team<br/>AI PM &amp; Ex-Газпромнефть</div>
       </div>
       <div>
@@ -1092,23 +1208,55 @@
       </div>
     </div>
 
-    <!-- Photos -->
+    <!-- Event Photos -->
     <div class="photos-section">
       <h3 class="photos-title">Как это было</h3>
       <div class="photos-grid">
-        <div class="photo-item">
-          <img src="images/event1.jpg" alt="Кейс-чемпионат Газпромнефть по ИИ" />
+        <div class="photo-item" data-caption="Кейс-чемпионат Газпромнефть по ИИ">
+          <img
+            src="images/event1.jpg"
+            alt="Кейс-чемпионат Газпромнефть по ИИ"
+            onerror="this.parentElement.classList.add('photo-placeholder-1');this.style.display='none';"
+          />
         </div>
-        <div class="photo-item">
-          <img src="images/event2.jpg" alt="Митап AI Business — Трансформируй бизнес с AI" />
+        <div class="photo-item" data-caption="Митап AI Business SPb — Трансформируй бизнес с AI">
+          <img
+            src="images/event2.jpg"
+            alt="Митап AI Business"
+            onerror="this.parentElement.classList.add('photo-placeholder-2');this.style.display='none';"
+          />
         </div>
-        <div class="photo-item">
-          <img src="images/event3.jpg" alt="Выступление на ML2Business" />
+        <div class="photo-item" data-caption="Выступление на ML2Business">
+          <img
+            src="images/event3.jpg"
+            alt="Выступление на ML2Business"
+            onerror="this.parentElement.classList.add('photo-placeholder-3');this.style.display='none';"
+          />
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* Photo placeholders shown when images are missing */
+  .photo-placeholder-1 { background: linear-gradient(135deg, #2A1660, #422293) !important; }
+  .photo-placeholder-2 { background: linear-gradient(135deg, #422293, #5B2FD4) !important; }
+  .photo-placeholder-3 { background: linear-gradient(135deg, #5B2FD4, #7C4FE0) !important; }
+  .photo-placeholder-1::before, .photo-placeholder-2::before, .photo-placeholder-3::before {
+    content: attr(data-caption);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 20px;
+    text-align: center;
+  }
+</style>
 
 <!-- ── LEADS ── -->
 <section id="leads">
@@ -1124,7 +1272,7 @@
         <div class="lead-icon">📄</div>
         <h3 class="lead-title">Авторский шаблон технического задания AI-продуктов</h3>
         <p class="lead-desc">Для продуктовых команд и корпоративных центров AI-экспертизы — чтобы точнее ставить задачи на продуктовую разработку или автоматизацию и получать предсказуемый результат быстрее.</p>
-        <div class="lead-reply">Отвечаю в течение 1 рабочего дня</div>
+        <div class="lead-proof">Шаблон проверен на 5+ коммерческих проектах в AllSee.team</div>
         <a href="https://t.me/m/mMYnzN3jNWMy" target="_blank" class="btn-primary" style="width:fit-content;">Получить шаблон →</a>
       </div>
 
@@ -1132,7 +1280,7 @@
         <div class="lead-icon">🎤</div>
         <h3 class="lead-title">Пригласить выступить в вашей компании</h3>
         <p class="lead-desc">Для компаний, которые хотят ускорить процессы с AI, снять барьер в применении AI сотрудниками и построить безопасную корпоративную AI-среду. Запросите портфолио мероприятий.</p>
-        <div class="lead-reply">Отвечаю в течение 1 рабочего дня</div>
+        <div class="lead-proof">10+ выступлений и публикаций СМИ в портфолио популяризации AI</div>
         <a href="https://t.me/m/prcCUTgcMDUy" target="_blank" class="btn-primary" style="width:fit-content;">Запросить портфолио →</a>
       </div>
 
@@ -1179,7 +1327,7 @@
 <div class="modal-overlay" id="modal-notebooklm" onclick="closeModalOnOverlay(event)">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-notebooklm')">✕</button>
-    <div class="modal-tool-tag"><span class="case-tool-tag">🟠 NotebookLM</span></div>
+    <div class="modal-tool-tag"><span class="case-tool-tag"><span class="tag-logo"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="4" fill="#FFF4EE"/><g transform="translate(50,50)"><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(0)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(30)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(60)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(90)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(120)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(150)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(180)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(210)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(240)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(270)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(300)"/><rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(330)"/></g></svg></span>NotebookLM</span></div>
     <h2 class="modal-title">Погрузиться в требования заказчика за 15 минут</h2>
     <p class="modal-desc">Загружаем расшифровку встречи с заказчиком или демо-файл, задаём вопросы и получаем структурированный BRD. NotebookLM отвечает строго по источникам — не галлюцинирует.</p>
     <div class="prompt-block">
@@ -1207,7 +1355,7 @@
 <div class="modal-overlay" id="modal-deepseek" onclick="closeModalOnOverlay(event)">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-deepseek')">✕</button>
-    <div class="modal-tool-tag"><span class="case-tool-tag">🔵 DeepSeek</span></div>
+    <div class="modal-tool-tag"><span class="case-tool-tag"><span class="tag-logo"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="4" fill="#fff"/><path d="M15 78 A46 46 0 0 1 85 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M25 78 A36 36 0 0 1 75 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M35 78 A26 26 0 0 1 65 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M45 78 A16 16 0 0 1 55 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/></svg></span>DeepSeek</span></div>
     <h2 class="modal-title">Из требований заказчика — в User Stories и PRD</h2>
     <p class="modal-desc">Берём BRD из кейса 1, структурируем User Stories и генерируем полный PRD для всей команды. DeepSeek отлично работает с длинными документами и доступен без VPN.</p>
     <div class="prompt-block">
@@ -1256,7 +1404,7 @@ PRD должен содержать:
 <div class="modal-overlay" id="modal-claude" onclick="closeModalOnOverlay(event)">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-claude')">✕</button>
-    <div class="modal-tool-tag"><span class="case-tool-tag">🟣 Claude — Главный кейс</span></div>
+    <div class="modal-tool-tag"><span class="case-tool-tag"><span class="tag-logo"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="4" fill="#FFF4EE"/><g transform="translate(50,50)"><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(0)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(36)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(72)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(108)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(144)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(180)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(216)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(252)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(288)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(324)"/></g></svg></span>Claude — Главный кейс</span></div>
     <h2 class="modal-title">ТЗ, Бэклог и Роадмап из PRD</h2>
     <p class="modal-desc">Claude — лучший инструмент для длинных технических документов. Понимает контекст, не теряет его в диалоге, идеален для итеративной доработки.</p>
     <div class="prompt-block">
@@ -1323,7 +1471,7 @@ PRD должен содержать:
 <div class="modal-overlay" id="modal-mermaid" onclick="closeModalOnOverlay(event)">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-mermaid')">✕</button>
-    <div class="modal-tool-tag"><span class="case-tool-tag">🟣 Claude + Mermaid</span></div>
+    <div class="modal-tool-tag"><span class="case-tool-tag"><span class="tag-logo"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="4" fill="#FFF4EE"/><g transform="translate(50,50)"><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(0)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(36)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(72)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(108)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(144)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(180)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(216)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(252)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(288)"/><rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(324)"/></g></svg></span>Claude + Mermaid</span></div>
     <h2 class="modal-title">Специфицировать логику продукта в диаграммы</h2>
     <p class="modal-desc">Claude генерирует Mermaid-код, mermaid.live рендерит его в картинку. Описываем логику текстом — получаем готовые диаграммы для документации и презентации.</p>
     <div class="prompt-block">
@@ -1374,7 +1522,7 @@ PRD должен содержать:
 Используй синтаксис Mermaid sequenceDiagram.</pre>
       </div>
     </div>
-    <div class="modal-action" style="gap:12px;flex-wrap:wrap;">
+    <div class="modal-action">
       <a href="https://claude.ai/new" target="_blank" class="btn-primary">Открыть Claude →</a>
       <a href="https://mermaid.live/" target="_blank" class="btn-secondary">Mermaid Live →</a>
     </div>
@@ -1385,7 +1533,7 @@ PRD должен содержать:
 <div class="modal-overlay" id="modal-manus" onclick="closeModalOnOverlay(event)">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-manus')">✕</button>
-    <div class="modal-tool-tag"><span class="case-tool-tag">🟤 Manus</span></div>
+    <div class="modal-tool-tag"><span class="case-tool-tag"><span class="tag-logo"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="4" fill="#fff"/><path d="M54 72 C48 72 40 68 36 60 C30 52 28 44 30 36 C31 30 36 28 41 30 C43 26 48 24 52 26 C54 22 59 21 63 24 C65 20 70 21 72 24 C75 21 80 23 80 28 L80 52 C80 64 72 72 60 72 Z" fill="none" stroke="#1A1A2E" stroke-width="7" stroke-linejoin="round"/><path d="M41 30 L41 42" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/><path d="M52 26 L52 40" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/><path d="M63 24 L63 40" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/><path d="M72 24 L72 42" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/><line x1="56" y1="18" x2="52" y2="12" stroke="#1A1A2E" stroke-width="6" stroke-linecap="round"/><line x1="64" y1="16" x2="62" y2="10" stroke="#1A1A2E" stroke-width="6" stroke-linecap="round"/></svg></span>Manus</span></div>
     <h2 class="modal-title">Собрать презентацию проекта для стейкхолдеров</h2>
     <p class="modal-desc">Передаём Manus PRD и ТЗ — получаем готовую презентацию проекта с дизайном. Первая версия за 3 минуты, доработка под нужды — ещё 10.</p>
     <div class="prompt-block">
@@ -1420,26 +1568,36 @@ PRD должен содержать:
 <div class="modal-overlay" id="modal-kimi" onclick="closeModalOnOverlay(event)">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-kimi')">✕</button>
-    <div class="modal-tool-tag"><span class="case-tool-tag">🟢 Kimi</span></div>
-    <h2 class="modal-title">Проанализировать данные и визуализировать инсайты</h2>
-    <p class="modal-desc">Загружаем табличные данные, анализируем и получаем визуализацию с готовыми выводами для принятия решений.</p>
+    <div class="modal-tool-tag"><span class="case-tool-tag"><span class="tag-logo"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="4" fill="#EEF1FF"/><ellipse cx="50" cy="56" rx="34" ry="26" fill="#5B7CF6"/><path d="M74 36 Q84 22 88 18 Q82 28 78 38Z" fill="#5B7CF6"/><path d="M74 36 Q88 32 92 30 Q84 40 76 40Z" fill="#5B7CF6"/><ellipse cx="38" cy="54" rx="15" ry="9" fill="white" transform="rotate(-15,38,54)"/><circle cx="60" cy="47" r="4.5" fill="white"/><circle cx="61" cy="46" r="2.5" fill="#5B7CF6"/><path d="M22 70 Q16 82 12 86 Q18 78 26 72Z" fill="#5B7CF6"/></svg></span>Kimi</span></div>
+    <h2 class="modal-title">Проанализировать данные зарплат и визуализировать инсайты</h2>
+    <p class="modal-desc">Загружаем таблицу со статистическими данными по зарплатам → анализируем → получаем визуализацию с готовыми выводами для принятия HR и продуктовых решений.</p>
     <div class="prompt-block">
       <div class="prompt-label">Промпт для Kimi</div>
       <div class="prompt-box">
         <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
-        <pre>Проанализируй загруженные данные и выполни следующие задачи:
+        <pre>Проанализируй загруженную таблицу с данными по зарплатам и выполни:
 
-1. Дай общее описание датасета (структура, типы данных, объём)
-2. Найди ключевые паттерны и аномалии
-3. Выяви топ-5 инсайтов, важных для принятия продуктовых решений
-4. Предложи 3 гипотезы для дальнейшего исследования
-5. Создай визуализации:
-   - Динамика ключевых метрик во времени
-   - Распределение по сегментам
-   - Корреляции между важными переменными
-6. Сформулируй конкретные рекомендации для команды
+1. Общая статистика по датасету:
+   - Диапазон зарплат (min, max, median, среднее)
+   - Количество позиций и распределение по уровням (Junior/Middle/Senior)
+   - Распределение по функциям / специализациям
 
-Формат вывода: структурированный отчёт с графиками и таблицами.</pre>
+2. Ключевые инсайты:
+   - Топ-5 самых высокооплачиваемых специализаций
+   - Разрыв в зарплатах между уровнями (в % и абсолютных значениях)
+   - Аномалии и выбросы в данных
+
+3. Визуализации:
+   - Boxplot: зарплаты по уровням (Junior / Middle / Senior)
+   - Bar chart: медианные зарплаты по специализациям
+   - Heatmap: зарплаты по уровню и функции (если есть данные)
+
+4. Выводы для принятия решений:
+   - Где рыночная ставка выше внутренней вилки
+   - Рекомендации по ревизии грейдов
+   - Топ-3 риска с точки зрения удержания команды
+
+Формат: структурированный отчёт с графиками и таблицей выводов.</pre>
       </div>
     </div>
     <div class="modal-action">
@@ -1449,13 +1607,13 @@ PRD должен содержать:
 </div>
 
 <script>
-  // Nav scroll behavior
+  // Nav scroll
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
   });
 
-  // Burger menu
+  // Burger
   const burgerBtn = document.getElementById('burger-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   burgerBtn.addEventListener('click', () => {
@@ -1504,14 +1662,13 @@ PRD должен содержать:
     });
   }
 
-  // Smooth scroll for anchor links
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        const offset = 80;
-        window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
       }
     });
   });
