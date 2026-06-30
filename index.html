@@ -269,9 +269,11 @@
     }
     .hero-for h4 { font-size: 15px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px; }
     .for-list { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .for-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); background: var(--bg); border-radius: 12px; padding: 14px 16px; }
-    .for-list li::before { content: '→'; color: var(--accent2); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
-    .for-list li strong { display: block; color: var(--text); font-weight: 600; margin-bottom: 3px; }
+    .for-list li { display: flex; align-items: flex-start; gap: 12px; background: var(--bg); border-radius: 12px; padding: 16px 18px; }
+    .for-list li::before { display: none; }
+    .for-emoji { font-size: 24px; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+    .for-text strong { display: block; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .for-text span { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
 
     /* ── TOOL LOGOS ── */
     .tool-logo-svg {
@@ -904,9 +906,27 @@
     <div class="hero-for">
       <h4>Для кого</h4>
       <ul class="for-list">
-        <li><strong>Продакты и проджекты</strong> — быстро работать с требованиями заказчика</li>
-        <li><strong>Бизнес и системные аналитики</strong> — готовить спецификации в разы быстрее</li>
-        <li><strong>Предприниматели и руководители</strong> — повысить эффективность сотрудников</li>
+        <li>
+          <div class="for-emoji">🧩</div>
+          <div class="for-text">
+            <strong>Продакты и проджекты</strong>
+            <span>Быстро работать с требованиями заказчика</span>
+          </div>
+        </li>
+        <li>
+          <div class="for-emoji">📊</div>
+          <div class="for-text">
+            <strong>Бизнес и системные аналитики</strong>
+            <span>Готовить спецификации в разы быстрее</span>
+          </div>
+        </li>
+        <li>
+          <div class="for-emoji">🚀</div>
+          <div class="for-text">
+            <strong>Предприниматели и руководители</strong>
+            <span>Повысить эффективность сотрудников</span>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
@@ -1236,7 +1256,7 @@
         <div class="lead-icon">🎤</div>
         <h3 class="lead-title">Пригласить выступить в вашей компании</h3>
         <p class="lead-desc">Для компаний, которые хотят ускорить процессы с AI, снять барьер в применении AI сотрудниками и построить безопасную корпоративную AI-среду. Запросите портфолио мероприятий.</p>
-        <div class="lead-proof">10+ выступлений и публикаций СМИ в портфолио популяризации AI</div>
+        <div class="lead-proof">10+ выступлений и публикаций СМИ в портфолио</div>
         <a href="https://t.me/m/prcCUTgcMDUy" target="_blank" class="btn-primary" style="width:fit-content;">Запросить портфолио →</a>
       </div>
 
