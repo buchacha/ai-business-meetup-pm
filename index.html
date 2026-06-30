@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI для продакта — митап AI Business SPb</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F4F7F6;
+      --bg-card: #ffffff;
+      --accent: #422293;
+      --accent2: #5B2FD4;
+      --accent-light: #EDE8FB;
+      --text: #1A1A2E;
+      --text-secondary: #5A5A7A;
+      --border: rgba(66,34,147,0.12);
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(66,34,147,0.10);
+      --shadow-hover: 0 8px 40px rgba(66,34,147,0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Russo One', sans-serif; line-height: 1.2; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(244,247,246,0.0);
+      backdrop-filter: blur(0px);
+      transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(244,247,246,0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(66,34,147,0.08);
+    }
+    .nav-logo {
+      font-family: 'Russo One', sans-serif;
+      font-size: 18px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* burger */
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: rgba(244,247,246,0.98);
+      backdrop-filter: blur(12px);
+      padding: 24px 32px 32px;
+      flex-direction: column;
+      gap: 24px;
+      z-index: 99;
+      box-shadow: 0 8px 32px rgba(66,34,147,0.12);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 96px 0; }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+    .section-label {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px);
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 600px;
+    }
+    .section-header { margin-bottom: 56px; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #F4F7F6 0%, #EDE8FB 60%, #F4F7F6 100%);
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(91,47,212,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(66,34,147,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-light);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--accent2);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+    .hero-title {
+      font-size: clamp(32px, 5vw, 58px);
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      font-size: 17px;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(66,34,147,0.30);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(66,34,147,0.40); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--accent);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: 2px solid var(--accent);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+    .hero-values {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .hero-value-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: white;
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s;
+    }
+    .hero-value-item:hover { transform: translateX(4px); }
+    .hero-value-icon {
+      width: 40px; height: 40px;
+      background: var(--accent-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .hero-value-text strong { display: block; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .hero-value-text span { font-size: 13px; color: var(--text-secondary); }
+
+    .hero-for {
+      margin-top: 48px;
+      padding: 28px;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--accent2);
+    }
+    .hero-for h4 { font-size: 16px; color: var(--text); margin-bottom: 16px; }
+    .for-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .for-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--text-secondary);
+    }
+    .for-list li::before {
+      content: '→';
+      color: var(--accent2);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .for-list li strong { color: var(--text); font-weight: 600; }
+
+    /* ── TOOLS ── */
+    #tools { background: #fff; }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .tool-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 1.5px solid var(--border);
+      transition: all 0.25s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .tool-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: rgba(66,34,147,0.25); }
+    .tool-card:hover::before { opacity: 1; }
+    .tool-card.featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, #F0EBFC, #EDE8FB);
+      border-color: rgba(66,34,147,0.25);
+    }
+    .tool-card.featured::before { opacity: 1; }
+    .tool-logo {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      object-fit: contain;
+      background: white;
+      padding: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .tool-logo-placeholder {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      flex-shrink: 0;
+    }
+    .tool-name { font-family: 'Russo One', sans-serif; font-size: 18px; color: var(--text); }
+    .tool-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; flex: 1; }
+    .tool-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: auto;
+    }
+    .tool-link::after { content: '→'; }
+    .tool-extra-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-top: 4px;
+    }
+    .tool-extra-link:hover { color: var(--accent); }
+    .tool-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    /* ── CASES ── */
+    #cases { background: var(--bg); }
+    .cases-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .cases-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .cases-download:hover { background: var(--accent-light); border-color: var(--accent); }
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .case-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 1.5px solid var(--border);
+      cursor: pointer;
+      transition: all 0.25s;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .case-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: rgba(66,34,147,0.25); }
+    .case-card.featured-case {
+      grid-column: span 2;
+      background: linear-gradient(135deg, #F0EBFC 0%, white 100%);
+      border-color: rgba(66,34,147,0.25);
+    }
+    .case-tool-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 100px;
+      width: fit-content;
+    }
+    .case-title { font-family: 'Russo One', sans-serif; font-size: 17px; color: var(--text); }
+    .case-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; flex: 1; }
+    .case-effect {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-light);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .case-effect::before { content: '⚡'; }
+    .case-open-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      transition: gap 0.2s;
+    }
+    .case-open-btn:hover { gap: 10px; }
+    .case-open-btn::after { content: '→'; }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26,26,46,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      padding: 24px;
+      overflow-y: auto;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: white;
+      border-radius: 20px;
+      max-width: 700px;
+      width: 100%;
+      margin: auto;
+      padding: 40px;
+      position: relative;
+      box-shadow: 0 24px 80px rgba(66,34,147,0.20);
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .modal-close:hover { background: var(--accent-light); color: var(--accent); }
+    .modal-tool-tag { margin-bottom: 12px; }
+    .modal-title { font-size: 22px; margin-bottom: 12px; }
+    .modal-desc { font-size: 15px; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.6; }
+    .prompt-block { margin-bottom: 20px; }
+    .prompt-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 10px;
+    }
+    .prompt-box {
+      background: #1A1A2E;
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+    }
+    .prompt-box pre {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: #E8E8F0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.6;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 12px; right: 12px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #E8E8F0;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .copy-btn:hover { background: rgba(255,255,255,0.2); }
+    .copy-btn.copied { background: rgba(91,47,212,0.5); }
+    .modal-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    /* ── AUTHOR ── */
+    #author { background: white; }
+    .author-inner {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .author-photo-wrap {
+      position: relative;
+    }
+    .author-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: var(--shadow-hover);
+    }
+    .author-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--accent-light), #ddd6f5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      box-shadow: var(--shadow-hover);
+    }
+    .author-badge-float {
+      position: absolute;
+      bottom: -16px; right: -16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: white;
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(66,34,147,0.35);
+      line-height: 1.5;
+    }
+    .author-name { font-size: clamp(26px, 3vw, 38px); margin-bottom: 8px; }
+    .author-role {
+      font-size: 16px;
+      color: var(--accent2);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .author-bio {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .author-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .author-fact {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--text);
+    }
+    .author-fact::before { content: '◆'; color: var(--accent2); font-size: 10px; margin-top: 4px; flex-shrink: 0; }
+    .portfolio-title { font-size: 20px; margin-bottom: 24px; }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .portfolio-card {
+      background: var(--bg);
+      border-radius: 14px;
+      padding: 20px;
+      border: 1.5px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .portfolio-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: rgba(66,34,147,0.25); }
+    .portfolio-card-title { font-size: 14px; font-weight: 700; color: var(--text); }
+    .portfolio-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+    .portfolio-card-link { font-size: 12px; color: var(--accent); font-weight: 600; margin-top: auto; }
+
+    .photos-section { margin-top: 64px; }
+    .photos-title { font-size: 22px; margin-bottom: 24px; }
+    .photos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .photo-item {
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: var(--shadow);
+    }
+    .photo-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .photo-item:hover img { transform: scale(1.04); }
+
+    /* ── LEADS ── */
+    #leads { background: var(--bg); }
+    .leads-title-block { text-align: center; margin-bottom: 56px; }
+    .leads-title-block .section-sub { margin: 0 auto; }
+    .leads-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .lead-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      border: 1.5px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .lead-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+    .lead-icon {
+      width: 56px; height: 56px;
+      background: var(--accent-light);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+    }
+    .lead-title { font-size: 20px; color: var(--text); }
+    .lead-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; flex: 1; }
+    .lead-reply {
+      font-size: 13px;
+      color: var(--text-secondary);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .lead-reply::before { content: '🕐'; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1A1A2E;
+      color: rgba(255,255,255,0.7);
+      padding: 56px 0 32px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      margin-bottom: 48px;
+    }
+    .footer-brand-name {
+      font-family: 'Russo One', sans-serif;
+      font-size: 20px;
+      color: white;
+      margin-bottom: 12px;
+    }
+    .footer-brand-desc { font-size: 14px; line-height: 1.6; }
+    .footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .footer-col-title {
+      font-weight: 700;
+      color: white;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .footer-link {
+      display: block;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: white; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .burger { display: flex; }
+
+      section { padding: 64px 0; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-values { display: none; }
+      .tools-grid { grid-template-columns: 1fr 1fr; }
+      .tool-card.featured { grid-column: span 2; }
+      .cases-grid { grid-template-columns: 1fr; }
+      .case-card.featured-case { grid-column: span 1; }
+      .author-inner { grid-template-columns: 1fr; gap: 40px; }
+      .author-photo-wrap { max-width: 240px; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .photos-grid { grid-template-columns: repeat(2, 1fr); }
+      .leads-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-links-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+    }
+
+    @media (max-width: 600px) {
+      .tools-grid { grid-template-columns: 1fr; }
+      .tool-card.featured { grid-column: span 1; }
+      .hero-btns { flex-direction: column; }
+      .btn-primary, .btn-secondary { justify-content: center; }
+      .photos-grid { grid-template-columns: 1fr; }
+      .footer-links-grid { grid-template-columns: 1fr; }
+      .cases-top { flex-direction: column; align-items: flex-start; }
+      .modal { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">AI × Product</a>
+  <ul class="nav-links">
+    <li><a href="#tools">Инструменты</a></li>
+    <li><a href="#cases">Кейсы</a></li>
+    <li><a href="#author">Автор</a></li>
+    <li><a href="#leads">Контакт</a></li>
+  </ul>
+  <button class="burger" id="burger-btn" aria-label="Меню">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#tools" onclick="closeMobileMenu()">Инструменты</a>
+  <a href="#cases" onclick="closeMobileMenu()">Кейсы</a>
+  <a href="#author" onclick="closeMobileMenu()">Автор</a>
+  <a href="#leads" onclick="closeMobileMenu()">Контакт</a>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">AI Business Meetup · Санкт-Петербург</div>
+        <h1 class="hero-title">AI для продакта —<br/><span>ускоряем запуск</span><br/>продукта с ИИ</h1>
+        <p class="hero-desc">Интерактивная страница митапа AI Business с кейсами и полезными инструментами. Сократи рутину запуска продукта с дней до часов.</p>
+        <div class="hero-btns">
+          <a href="#tools" class="btn-primary">Инструменты AI</a>
+          <a href="#cases" class="btn-secondary">Практические кейсы</a>
+        </div>
+        <div class="hero-for">
+          <h4>Для кого</h4>
+          <ul class="for-list">
+            <li><strong>Продакты и проджекты</strong> — быстро работать с требованиями заказчика</li>
+            <li><strong>Бизнес и системные аналитики</strong> — готовить спецификации в разы быстрее</li>
+            <li><strong>Предприниматели и руководители</strong> — повысить эффективность сотрудников</li>
+          </ul>
+        </div>
+      </div>
+      <div class="hero-values">
+        <div class="hero-value-item">
+          <div class="hero-value-icon">⚡</div>
+          <div class="hero-value-text">
+            <strong>Дни → Часы</strong>
+            <span>Сокращение рутины запуска продукта</span>
+          </div>
+        </div>
+        <div class="hero-value-item">
+          <div class="hero-value-icon">📋</div>
+          <div class="hero-value-text">
+            <strong>Быстрый анализ требований</strong>
+            <span>Погружение в контекст заказчика за 15 минут</span>
+          </div>
+        </div>
+        <div class="hero-value-item">
+          <div class="hero-value-icon">📄</div>
+          <div class="hero-value-text">
+            <strong>Техническое задание</strong>
+            <span>Ускоренное формирование ТЗ для разработчиков</span>
+          </div>
+        </div>
+        <div class="hero-value-item">
+          <div class="hero-value-icon">🗺️</div>
+          <div class="hero-value-text">
+            <strong>Roadmap и Backlog</strong>
+            <span>Продуманное планирование без потери контекста</span>
+          </div>
+        </div>
+        <div class="hero-value-item">
+          <div class="hero-value-icon">📐</div>
+          <div class="hero-value-text">
+            <strong>Понятные спецификации</strong>
+            <span>Диаграммы и документация, которую читает команда</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TOOLS ── -->
+<section id="tools">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Блок 2</div>
+      <h2 class="section-title">Инструменты AI</h2>
+      <p class="section-sub">Пять проверенных инструментов для работы продакта с ИИ — от анализа требований до презентации результатов.</p>
+    </div>
+    <div class="tools-grid">
+
+      <!-- DeepSeek -->
+      <a href="https://chat.deepseek.com/" target="_blank" class="tool-card">
+        <div class="tool-logo-placeholder">🔵</div>
+        <div class="tool-name">DeepSeek</div>
+        <p class="tool-desc">Мощная универсальная модель с большим контекстом, веб-поиском и режимом размышлений. Подходит для быстрого анализа требований, создания PRD и декомпозиции задач.</p>
+        <span class="tool-link">Открыть DeepSeek</span>
+      </a>
+
+      <!-- NotebookLM -->
+      <a href="https://notebooklm.google.com/" target="_blank" class="tool-card">
+        <div class="tool-logo-placeholder">🟠</div>
+        <div class="tool-name">NotebookLM</div>
+        <p class="tool-desc">Инструмент для общения с базой знаний (аудио, документы, презентации) и генерации артефактов: подкасты, презентации, инфографика.</p>
+        <span class="tool-link">Открыть NotebookLM</span>
+      </a>
+
+      <!-- Claude (featured) -->
+      <div class="tool-card featured" style="cursor:default;">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <div class="tool-logo-placeholder" style="background:linear-gradient(135deg,#422293,#5B2FD4);font-size:26px;">🟣</div>
+          <div>
+            <div class="tool-tag">Главный инструмент</div>
+            <div class="tool-name">Claude</div>
+          </div>
+        </div>
+        <p class="tool-desc">«Папа» всех AI-инструментов для глубокой проработки спецификаций продукта: технические задания, диаграммы, детальный backlog и roadmap. Лучший на рынке для длинных технических документов — не теряет контекст в диалоге.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="https://claude.ai/new" target="_blank" class="tool-link">Открыть Claude</a>
+          <a href="https://mermaid.live/" target="_blank" class="tool-extra-link">↗ Mermaid Live — рендеринг диаграмм</a>
+        </div>
+      </div>
+
+      <!-- Manus -->
+      <a href="https://manus.im/app" target="_blank" class="tool-card">
+        <div class="tool-logo-placeholder">🟤</div>
+        <div class="tool-name">Manus</div>
+        <p class="tool-desc">Создание красивых презентаций для демо ваших идей и продуктов. Читает длинные документы, создаёт слайды с дизайном и визуализацию данных.</p>
+        <span class="tool-link">Открыть Manus</span>
+      </a>
+
+      <!-- Kimi -->
+      <a href="https://www.kimi.com/" target="_blank" class="tool-card">
+        <div class="tool-logo-placeholder">🟢</div>
+        <div class="tool-name">Kimi</div>
+        <p class="tool-desc">Швейцарский нож для задач аналитики, исследования и визуализации данных. Отлично справляется с табличными данными и инсайтами.</p>
+        <span class="tool-link">Открыть Kimi</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CASES ── -->
+<section id="cases">
+  <div class="container">
+    <div class="cases-top">
+      <div>
+        <div class="section-label">Блок 3</div>
+        <h2 class="section-title">Практические кейсы</h2>
+        <p class="section-sub">Готовые промпты для каждого этапа запуска продукта — от требований до презентации.</p>
+      </div>
+      <a href="https://drive.google.com/drive/u/2/folders/1UWHeCynG1pvZKtJ2zWFRoDHYGi3-qWhH" target="_blank" class="cases-download">
+        📥 Скачать исходные материалы
+      </a>
+    </div>
+    <div class="cases-grid">
+
+      <!-- Case 1: NotebookLM -->
+      <div class="case-card" onclick="openModal('modal-notebooklm')">
+        <div class="case-tool-tag">🟠 NotebookLM</div>
+        <div class="case-title">Погрузиться в требования заказчика за 15 минут</div>
+        <p class="case-desc">Загрузить расшифровку встречи или документы заказчика → задать вопросы → получить структурированный BRD.</p>
+        <div class="case-effect">Ускорение погружения в проект с дней до часов</div>
+        <button class="case-open-btn">Смотреть промпт</button>
+      </div>
+
+      <!-- Case 2: DeepSeek -->
+      <div class="case-card" onclick="openModal('modal-deepseek')">
+        <div class="case-tool-tag">🔵 DeepSeek</div>
+        <div class="case-title">Из требований заказчика — в User Stories и PRD</div>
+        <p class="case-desc">Взять BRD из кейса 1 → структурировать User Stories → сгенерировать полный PRD для всей команды.</p>
+        <div class="case-effect">Документ для всей команды за 20 минут вместо 2 дней</div>
+        <button class="case-open-btn">Смотреть промпты</button>
+      </div>
+
+      <!-- Case 3: Claude (featured) -->
+      <div class="case-card featured-case" onclick="openModal('modal-claude')">
+        <div class="case-tool-tag">🟣 Claude — Главный кейс</div>
+        <div class="case-title">Техническое задание, Бэклог и Роадмап из PRD</div>
+        <p class="case-desc">На основе PRD из кейса 2 → разработать ТЗ на разработку → декомпозировать в бэклог → распланировать первые спринты. Три полных документа за один сеанс работы.</p>
+        <div class="case-effect">ТЗ + Backlog + Roadmap за 1–2 часа вместо 2 недель</div>
+        <button class="case-open-btn">Смотреть промпты (3 шт.)</button>
+      </div>
+
+      <!-- Case 4: Claude + Mermaid -->
+      <div class="case-card" onclick="openModal('modal-mermaid')">
+        <div class="case-tool-tag">🟣 Claude + Mermaid</div>
+        <div class="case-title">Специфицировать логику продукта в диаграммы</div>
+        <p class="case-desc">Описать ключевую логику продукта текстом → получить Mermaid-диаграммы → вставить в документацию или презентацию.</p>
+        <div class="case-effect">Диаграммы за 5 минут вместо 2 часов в Figma</div>
+        <button class="case-open-btn">Смотреть промпты (3 шт.)</button>
+      </div>
+
+      <!-- Case 5: Manus -->
+      <div class="case-card" onclick="openModal('modal-manus')">
+        <div class="case-tool-tag">🟤 Manus</div>
+        <div class="case-title">Собрать презентацию проекта для стейкхолдеров</div>
+        <p class="case-desc">Передать Manus PRD и ТЗ → получить готовую презентацию проекта для стейкхолдеров или инвесторов с дизайном.</p>
+        <div class="case-effect">Первая версия презентации за 3 минуты</div>
+        <button class="case-open-btn">Смотреть промпт</button>
+      </div>
+
+      <!-- Case 6: Kimi -->
+      <div class="case-card" onclick="openModal('modal-kimi')">
+        <div class="case-tool-tag">🟢 Kimi</div>
+        <div class="case-title">Проанализировать данные и визуализировать инсайты</div>
+        <p class="case-desc">Загрузить табличные данные → проанализировать → получить визуализацию и готовые выводы для принятия решений.</p>
+        <div class="case-effect">Аналитический отчёт за 15 минут вместо полудня</div>
+        <button class="case-open-btn">Смотреть промпт</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── AUTHOR ── -->
+<section id="author">
+  <div class="container">
+    <div class="section-label">Автор</div>
+    <div class="author-inner">
+      <div class="author-photo-wrap">
+        <img src="images/egor.jpg" alt="Егор Красильников" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="author-photo-placeholder" style="display:none;">👤</div>
+        <div class="author-badge-float">CEO AllSee.team<br/>AI PM &amp; Ex-Газпромнефть</div>
+      </div>
+      <div>
+        <h2 class="author-name">Егор Красильников</h2>
+        <div class="author-role">AI Product Manager · Координатор AI Business SPb</div>
+        <p class="author-bio">
+          Помогаю командам запускать продукты быстрее с помощью AI. Провожу корпоративные митапы, хакатоны и воркшопы по применению искусственного интеллекта в продуктовой разработке.
+        </p>
+        <div class="author-facts">
+          <div class="author-fact">CEO AllSee.team — студия ИИ-решений для бизнеса</div>
+          <div class="author-fact">Ex-продуктовый аналитик Газпромнефть</div>
+          <div class="author-fact">Выпускник СПбГУ ПМ-ПУ, в продуктовой разработке с 2018 года</div>
+          <div class="author-fact">Спикер ML2Business, ИТ-диалог, AI Pulse и корпоративных митапов</div>
+          <div class="author-fact">Координатор хакатонов и сообщества AI Business SPb</div>
+        </div>
+
+        <h3 class="portfolio-title">Портфолио мероприятий</h3>
+        <div class="portfolio-grid">
+          <a href="https://www.youtube.com/live/zMEHKw21MDU?si=3nbOI5IDbey5r8zt&t=2659" target="_blank" class="portfolio-card">
+            <div class="portfolio-card-title">🎤 ML2Business</div>
+            <p class="portfolio-card-desc">Запуск AI-продукта: фишки и грабли. Доклад для продакт-сообщества.</p>
+            <span class="portfolio-card-link">Смотреть запись →</span>
+          </a>
+          <a href="https://vk.com/video-230108642_456239020" target="_blank" class="portfolio-card">
+            <div class="portfolio-card-title">🏢 Митапы Газпромнефть</div>
+            <p class="portfolio-card-desc">Ускорение проектных задач с AI. Корпоративный митап для команд.</p>
+            <span class="portfolio-card-link">Смотреть запись →</span>
+          </a>
+          <a href="https://t.me/pruduct_24/1013" target="_blank" class="portfolio-card">
+            <div class="portfolio-card-title">🏆 Кейс-чемпионат Газпромнефть</div>
+            <p class="portfolio-card-desc">За 1 день научить сотрудников применять ИИ в рабочих задачах.</p>
+            <span class="portfolio-card-link">Читать кейс →</span>
+          </a>
+          <a href="https://ai-business-spb.ru/" target="_blank" class="portfolio-card">
+            <div class="portfolio-card-title">🚀 Хакатон AI Business SPb</div>
+            <p class="portfolio-card-desc">За 2 дня создать прототипы AI-продуктов для реальных задач компании.</p>
+            <span class="portfolio-card-link">На сайт →</span>
+          </a>
+          <a href="https://vk.com/video-230108642_456239020" target="_blank" class="portfolio-card">
+            <div class="portfolio-card-title">📐 Митап в Газпромнефти</div>
+            <p class="portfolio-card-desc">Продуктовый подход для разработки AI-продуктов. Практика и кейсы.</p>
+            <span class="portfolio-card-link">Смотреть →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photos -->
+    <div class="photos-section">
+      <h3 class="photos-title">Как это было</h3>
+      <div class="photos-grid">
+        <div class="photo-item">
+          <img src="images/event1.jpg" alt="Кейс-чемпионат Газпромнефть по ИИ" />
+        </div>
+        <div class="photo-item">
+          <img src="images/event2.jpg" alt="Митап AI Business — Трансформируй бизнес с AI" />
+        </div>
+        <div class="photo-item">
+          <img src="images/event3.jpg" alt="Выступление на ML2Business" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LEADS ── -->
+<section id="leads">
+  <div class="container">
+    <div class="leads-title-block section-header">
+      <div class="section-label">Контакт</div>
+      <h2 class="section-title">Получить материалы или пригласить выступить</h2>
+      <p class="section-sub">Напишите запрос — отвечаю в течение 1 рабочего дня</p>
+    </div>
+    <div class="leads-grid">
+
+      <div class="lead-card">
+        <div class="lead-icon">📄</div>
+        <h3 class="lead-title">Авторский шаблон технического задания AI-продуктов</h3>
+        <p class="lead-desc">Для продуктовых команд и корпоративных центров AI-экспертизы — чтобы точнее ставить задачи на продуктовую разработку или автоматизацию и получать предсказуемый результат быстрее.</p>
+        <div class="lead-reply">Отвечаю в течение 1 рабочего дня</div>
+        <a href="https://t.me/m/mMYnzN3jNWMy" target="_blank" class="btn-primary" style="width:fit-content;">Получить шаблон →</a>
+      </div>
+
+      <div class="lead-card">
+        <div class="lead-icon">🎤</div>
+        <h3 class="lead-title">Пригласить выступить в вашей компании</h3>
+        <p class="lead-desc">Для компаний, которые хотят ускорить процессы с AI, снять барьер в применении AI сотрудниками и построить безопасную корпоративную AI-среду. Запросите портфолио мероприятий.</p>
+        <div class="lead-reply">Отвечаю в течение 1 рабочего дня</div>
+        <a href="https://t.me/m/prcCUTgcMDUy" target="_blank" class="btn-primary" style="width:fit-content;">Запросить портфолио →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">AI × Product</div>
+        <p class="footer-brand-desc">Митап AI Business SPb — сообщество тех, кто применяет искусственный интеллект в реальных продуктах и бизнесе.</p>
+      </div>
+      <div class="footer-links-grid">
+        <div>
+          <div class="footer-col-title">Канал Егора</div>
+          <a href="https://t.me/kras_ai_pm" target="_blank" class="footer-link">Telegram — kras_ai_pm</a>
+          <p style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.5;">Практика применения AI в продуктовой разработке</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Студия AllSee</div>
+          <a href="https://allsee.team" target="_blank" class="footer-link">allsee.team</a>
+          <p style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.5;">Студия AI-решений для бизнеса и продуктовых команд</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Сообщество</div>
+          <a href="https://ai-business-spb.ru" target="_blank" class="footer-link">AI Business SPb</a>
+          <p style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.5;">Хакатоны и митапы по AI в бизнесе в Санкт-Петербурге</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Егор Красильников · AllSee.team</span>
+      <span>AI Business SPb</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ MODALS ══ -->
+
+<!-- NotebookLM Modal -->
+<div class="modal-overlay" id="modal-notebooklm" onclick="closeModalOnOverlay(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-notebooklm')">✕</button>
+    <div class="modal-tool-tag"><span class="case-tool-tag">🟠 NotebookLM</span></div>
+    <h2 class="modal-title">Погрузиться в требования заказчика за 15 минут</h2>
+    <p class="modal-desc">Загружаем расшифровку встречи с заказчиком или демо-файл, задаём вопросы и получаем структурированный BRD. NotebookLM отвечает строго по источникам — не галлюцинирует.</p>
+    <div class="prompt-block">
+      <div class="prompt-label">Промпт для NotebookLM</div>
+      <div class="prompt-box">
+        <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        <pre>На основе загруженных материалов встречи:
+1. Выдели ключевые требования заказчика (топ-7)
+2. Определи бизнес-цели, которые он хочет достичь
+3. Найди противоречия или неясности в требованиях
+4. Составь черновик BRD со структурой:
+   - Контекст и цель
+   - Целевая аудитория
+   - Ключевые требования
+   - Открытые вопросы к заказчику</pre>
+      </div>
+    </div>
+    <div class="modal-action">
+      <a href="https://notebooklm.google.com/" target="_blank" class="btn-primary">Открыть NotebookLM →</a>
+    </div>
+  </div>
+</div>
+
+<!-- DeepSeek Modal -->
+<div class="modal-overlay" id="modal-deepseek" onclick="closeModalOnOverlay(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-deepseek')">✕</button>
+    <div class="modal-tool-tag"><span class="case-tool-tag">🔵 DeepSeek</span></div>
+    <h2 class="modal-title">Из требований заказчика — в User Stories и PRD</h2>
+    <p class="modal-desc">Берём BRD из кейса 1, структурируем User Stories и генерируем полный PRD для всей команды. DeepSeek отлично работает с длинными документами и доступен без VPN.</p>
+    <div class="prompt-block">
+      <div class="prompt-label">Промпт 1 — User Stories</div>
+      <div class="prompt-box">
+        <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        <pre>Ты — senior product manager. На основе следующего BRD создай
+User Story Map для MVP:
+[ВСТАВИТЬ BRD ИЗ КЕЙСА 1]
+
+Структура:
+- Разбей на 3–5 эпиков (крупные функциональные блоки)
+- Для каждого эпика: 3–5 историй формата:
+  "Как [роль], я хочу [действие], чтобы [ценность]"
+- Для каждой истории: 2–3 Acceptance Criteria
+- Приоритет: Must Have / Should Have / Nice to Have
+Формат: структурированный Markdown.</pre>
+      </div>
+    </div>
+    <div class="prompt-block">
+      <div class="prompt-label">Промпт 2 — Полный PRD</div>
+      <div class="prompt-box">
+        <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        <pre>На основе BRD и User Stories выше напиши полный PRD для команды.
+PRD должен содержать:
+1. Executive Summary (3–5 предложений)
+2. Problem Statement
+3. Goals & Success Metrics (OKR-формат)
+4. User Personas (2–3 персоны)
+5. Feature List с приоритетами MoSCoW
+6. User Flows (текстовое описание ключевых сценариев)
+7. Out of Scope — что НЕ делаем в MVP
+8. Технические требования верхнего уровня
+9. Таймлайн / Роадмап (квартальный)
+10. Риски и зависимости
+Язык: профессиональный, без воды. Формат: Markdown.</pre>
+      </div>
+    </div>
+    <div class="modal-action">
+      <a href="https://chat.deepseek.com/" target="_blank" class="btn-primary">Открыть DeepSeek →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Claude Modal -->
+<div class="modal-overlay" id="modal-claude" onclick="closeModalOnOverlay(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-claude')">✕</button>
+    <div class="modal-tool-tag"><span class="case-tool-tag">🟣 Claude — Главный кейс</span></div>
+    <h2 class="modal-title">ТЗ, Бэклог и Роадмап из PRD</h2>
+    <p class="modal-desc">Claude — лучший инструмент для длинных технических документов. Понимает контекст, не теряет его в диалоге, идеален для итеративной доработки.</p>
+    <div class="prompt-block">
+      <div class="prompt-label">Промпт А — Техническое задание</div>
+      <div class="prompt-box">
+        <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        <pre>Ты — опытный технический аналитик. На основе следующего PRD
+разработай Техническое задание (ТЗ) на разработку продукта.
+[ВСТАВИТЬ PRD]
+
+ТЗ должно включать:
+1. Общее описание системы и архитектурный подход
+2. Функциональные требования (детализация каждой фичи)
+3. Нефункциональные требования (производительность, безопасность, масштабируемость)
+4. Описание API и интеграций
+5. Модель данных (сущности и связи)
+6. Требования к UI/UX (ключевые экраны)
+7. Критерии приёмки для каждого модуля
+8. Глоссарий терминов
+Формат: Markdown, структура ГОСТ-совместимая.</pre>
+      </div>
+    </div>
+    <div class="prompt-block">
+      <div class="prompt-label">Промпт Б — Продуктовый Бэклог</div>
+      <div class="prompt-box">
+        <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        <pre>На основе ТЗ выше создай продуктовый бэклог для первых двух спринтов
+(2 недели каждый, команда 3–5 человек):
+
+Для каждой задачи:
+- ID (EPIC-XXX)
+- Название (до 10 слов)
+- Тип: Feature / Tech / Research / Bug
+- Story Points (шкала Фибоначчи: 1, 2, 3, 5, 8, 13)
+- Зависимости
+- Acceptance Criteria (2–3 пункта)
+- Приоритет: Critical / High / Medium / Low
+
+Организуй по эпикам. Итого: 15–20 задач для MVP.
+Формат: Markdown-таблица.</pre>
+      </div>
+    </div>
+    <div class="prompt-block">
+      <div class="prompt-label">Промпт В — Квартальный Роадмап</div>
+      <div class="prompt-box">
+        <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        <pre>На основе бэклога выше составь квартальный роадмап:
+- Q1: MVP (что войдёт в первый релиз)
+- Q2: Итерация (что добавим после фидбека)
+- Q3: Масштабирование (рост, новые фичи)
+
+Для каждого квартала: список эпиков, ключевые метрики успеха,
+зависимости и риски.
+Формат: Markdown с таблицей и кратким нарративом.</pre>
+      </div>
+    </div>
+    <div class="modal-action">
+      <a href="https://claude.ai/new" target="_blank" class="btn-primary">Открыть Claude →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Mermaid Modal -->
+<div class="modal-overlay" id="modal-mermaid" onclick="closeModalOnOverlay(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-mermaid')">✕</button>
+    <div class="modal-tool-tag"><span class="case-tool-tag">🟣 Claude + Mermaid</span></div>
+    <h2 class="modal-title">Специфицировать логику продукта в диаграммы</h2>
+    <p class="modal-desc">Claude генерирует Mermaid-код, mermaid.live рендерит его в картинку. Описываем логику текстом — получаем готовые диаграммы для документации и презентации.</p>
+    <div class="prompt-block">
+      <div class="prompt-label">Промпт А — User Flow (диаграмма потока)</div>
+      <div class="prompt-box">
+        <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        <pre>На основе следующего описания продукта создай диаграмму
+пользовательского потока (User Flow) в формате Mermaid flowchart:
+[ВСТАВИТЬ ОПИСАНИЕ КЛЮЧЕВОГО СЦЕНАРИЯ]
+
+Покажи:
+- Точку входа пользователя
+- Все ключевые шаги и решения (if/else развилки)
+- Успешный финал и ошибочные сценарии
+- Взаимодействие с внешними системами (если есть)
+Формат: Mermaid flowchart LR (слева направо).</pre>
+      </div>
+    </div>
+    <div class="prompt-block">
+      <div class="prompt-label">Промпт Б — ER-диаграмма базы данных</div>
+      <div class="prompt-box">
+        <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        <pre>Создай ER-диаграмму базы данных для следующего продукта
+в формате Mermaid erDiagram:
+[ВСТАВИТЬ ОПИСАНИЕ ПРОДУКТА ИЛИ ТЗ]
+
+Включи:
+- Все ключевые сущности (таблицы)
+- Атрибуты каждой сущности (с типами данных)
+- Связи между сущностями (один-ко-многим, многие-ко-многим)
+- Primary и Foreign keys
+Используй синтаксис Mermaid erDiagram.</pre>
+      </div>
+    </div>
+    <div class="prompt-block">
+      <div class="prompt-label">Промпт В — Sequence Diagram (взаимодействие систем)</div>
+      <div class="prompt-box">
+        <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        <pre>Создай диаграмму последовательности (Sequence Diagram)
+в формате Mermaid для следующего сценария:
+[ВСТАВИТЬ ОПИСАНИЕ ИНТЕГРАЦИИ ИЛИ API-ВЗАИМОДЕЙСТВИЯ]
+
+Покажи:
+- Участников (Пользователь, Frontend, Backend, БД, внешние API)
+- Последовательность запросов и ответов
+- Асинхронные операции (если есть)
+- Обработку ошибок
+Используй синтаксис Mermaid sequenceDiagram.</pre>
+      </div>
+    </div>
+    <div class="modal-action" style="gap:12px;flex-wrap:wrap;">
+      <a href="https://claude.ai/new" target="_blank" class="btn-primary">Открыть Claude →</a>
+      <a href="https://mermaid.live/" target="_blank" class="btn-secondary">Mermaid Live →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Manus Modal -->
+<div class="modal-overlay" id="modal-manus" onclick="closeModalOnOverlay(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-manus')">✕</button>
+    <div class="modal-tool-tag"><span class="case-tool-tag">🟤 Manus</span></div>
+    <h2 class="modal-title">Собрать презентацию проекта для стейкхолдеров</h2>
+    <p class="modal-desc">Передаём Manus PRD и ТЗ — получаем готовую презентацию проекта с дизайном. Первая версия за 3 минуты, доработка под нужды — ещё 10.</p>
+    <div class="prompt-block">
+      <div class="prompt-label">Промпт для Manus</div>
+      <div class="prompt-box">
+        <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        <pre>Создай презентацию продукта для стейкхолдеров на основе следующих материалов:
+[ВСТАВИТЬ PRD и/или ТЗ]
+
+Структура презентации:
+1. Титульный слайд (название, краткое описание, дата)
+2. Проблема и возможность (почему этот продукт нужен)
+3. Решение (что мы делаем, ключевые фичи)
+4. Целевая аудитория и персоны
+5. Роадмап (квартальный, визуально)
+6. Ключевые метрики успеха
+7. Команда и ресурсы
+8. Следующие шаги
+
+Стиль: профессиональный, технологичный, тёмная тема.
+Язык: русский.
+Количество слайдов: 8–10.</pre>
+      </div>
+    </div>
+    <div class="modal-action">
+      <a href="https://manus.im/app" target="_blank" class="btn-primary">Открыть Manus →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Kimi Modal -->
+<div class="modal-overlay" id="modal-kimi" onclick="closeModalOnOverlay(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-kimi')">✕</button>
+    <div class="modal-tool-tag"><span class="case-tool-tag">🟢 Kimi</span></div>
+    <h2 class="modal-title">Проанализировать данные и визуализировать инсайты</h2>
+    <p class="modal-desc">Загружаем табличные данные, анализируем и получаем визуализацию с готовыми выводами для принятия решений.</p>
+    <div class="prompt-block">
+      <div class="prompt-label">Промпт для Kimi</div>
+      <div class="prompt-box">
+        <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        <pre>Проанализируй загруженные данные и выполни следующие задачи:
+
+1. Дай общее описание датасета (структура, типы данных, объём)
+2. Найди ключевые паттерны и аномалии
+3. Выяви топ-5 инсайтов, важных для принятия продуктовых решений
+4. Предложи 3 гипотезы для дальнейшего исследования
+5. Создай визуализации:
+   - Динамика ключевых метрик во времени
+   - Распределение по сегментам
+   - Корреляции между важными переменными
+6. Сформулируй конкретные рекомендации для команды
+
+Формат вывода: структурированный отчёт с графиками и таблицами.</pre>
+      </div>
+    </div>
+    <div class="modal-action">
+      <a href="https://www.kimi.com/" target="_blank" class="btn-primary">Открыть Kimi →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Nav scroll behavior
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Burger menu
+  const burgerBtn = document.getElementById('burger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  burgerBtn.addEventListener('click', () => {
+    burgerBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobileMenu() {
+    burgerBtn.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  // Modals
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOnOverlay(e) {
+    if (e.target === e.currentTarget) {
+      e.currentTarget.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => {
+        m.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+
+  // Copy prompt
+  function copyPrompt(btn) {
+    const pre = btn.nextElementSibling;
+    navigator.clipboard.writeText(pre.textContent.trim()).then(() => {
+      btn.textContent = 'Скопировано!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Копировать';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 80;
+        window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
