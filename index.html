@@ -260,20 +260,20 @@
     .hero-value-text strong { display: block; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
     .hero-value-text span { font-size: 13px; color: var(--text-secondary); }
     .hero-for {
-      margin-top: 48px;
-      padding: 28px;
+      margin-top: 40px;
+      padding: 28px 32px;
       background: white;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      border-left: 4px solid var(--accent2);
+      border-top: 4px solid var(--accent2);
     }
-    .hero-for h4 { font-size: 16px; color: var(--text); margin-bottom: 16px; }
-    .for-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .for-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); }
-    .for-list li::before { content: '→'; color: var(--accent2); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-    .for-list li strong { color: var(--text); font-weight: 600; }
+    .hero-for h4 { font-size: 15px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px; }
+    .for-list { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .for-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); background: var(--bg); border-radius: 12px; padding: 14px 16px; }
+    .for-list li::before { content: '→'; color: var(--accent2); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .for-list li strong { display: block; color: var(--text); font-weight: 600; margin-bottom: 3px; }
 
-    /* ── TOOL LOGOS (SVG inline) ── */
+    /* ── TOOL LOGOS ── */
     .tool-logo-svg {
       width: 48px; height: 48px;
       border-radius: 12px;
@@ -281,14 +281,21 @@
       flex-shrink: 0;
       overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      background: #f5f5f5;
     }
-    .tool-logo-svg svg { width: 100%; height: 100%; }
+    .tool-logo-svg img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .tool-logo-deepseek  { background: #F8FAFE; }
+    .tool-logo-notebooklm { background: #FFF4EE; }
+    .tool-logo-claude    { background: #FFF4EE; }
+    .tool-logo-mermaid   { background: #F0FAF4; }
+    .tool-logo-manus     { background: #F8F8F8; }
+    .tool-logo-kimi      { background: #EEF1FF; }
 
     /* ── TOOLS ── */
     #tools { background: #fff; }
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
     .tool-card {
@@ -318,7 +325,6 @@
     .tool-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: rgba(66,34,147,0.25); }
     .tool-card:hover::before { opacity: 1; }
     .tool-card.featured {
-      grid-column: span 2;
       background: linear-gradient(135deg, #F0EBFC, #EDE8FB);
       border-color: rgba(66,34,147,0.25);
     }
@@ -720,8 +726,9 @@
       section { padding: 64px 0; }
       .hero-inner { grid-template-columns: 1fr; gap: 40px; }
       .hero-values { display: none; }
+      .for-list { grid-template-columns: 1fr; }
       .tools-grid { grid-template-columns: 1fr 1fr; }
-      .tool-card.featured { grid-column: span 2; }
+      .tool-card.featured { grid-column: unset; }
       .cases-grid { grid-template-columns: 1fr; }
       .case-card.featured-case { grid-column: span 1; }
       .author-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -855,14 +862,6 @@
           <a href="#tools" class="btn-primary">Инструменты AI</a>
           <a href="#cases" class="btn-secondary">Практические кейсы</a>
         </div>
-        <div class="hero-for">
-          <h4>Для кого</h4>
-          <ul class="for-list">
-            <li><strong>Продакты и проджекты</strong> — быстро работать с требованиями заказчика</li>
-            <li><strong>Бизнес и системные аналитики</strong> — готовить спецификации в разы быстрее</li>
-            <li><strong>Предприниматели и руководители</strong> — повысить эффективность сотрудников</li>
-          </ul>
-        </div>
       </div>
       <div class="hero-values">
         <div class="hero-value-item">
@@ -902,6 +901,14 @@
         </div>
       </div>
     </div>
+    <div class="hero-for">
+      <h4>Для кого</h4>
+      <ul class="for-list">
+        <li><strong>Продакты и проджекты</strong> — быстро работать с требованиями заказчика</li>
+        <li><strong>Бизнес и системные аналитики</strong> — готовить спецификации в разы быстрее</li>
+        <li><strong>Предприниматели и руководители</strong> — повысить эффективность сотрудников</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -918,14 +925,8 @@
       <!-- DeepSeek -->
       <a href="https://chat.deepseek.com/" target="_blank" class="tool-card">
         <div class="tool-header">
-          <div class="tool-logo-svg">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <rect width="100" height="100" rx="22" fill="#fff"/>
-              <path d="M15 78 A46 46 0 0 1 85 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/>
-              <path d="M25 78 A36 36 0 0 1 75 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/>
-              <path d="M35 78 A26 26 0 0 1 65 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/>
-              <path d="M45 78 A16 16 0 0 1 55 78" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/>
-            </svg>
+          <div class="tool-logo-svg tool-logo-deepseek">
+            <img src="images/logo-deepseek.png" alt="DeepSeek" onerror="this.style.display='none'" />
           </div>
           <div class="tool-name">DeepSeek</div>
         </div>
@@ -936,24 +937,8 @@
       <!-- NotebookLM -->
       <a href="https://notebooklm.google.com/" target="_blank" class="tool-card">
         <div class="tool-header">
-          <div class="tool-logo-svg">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <rect width="100" height="100" rx="22" fill="#FFF4EE"/>
-              <g transform="translate(50,50)">
-                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(0)"/>
-                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(30)"/>
-                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(60)"/>
-                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(90)"/>
-                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(120)"/>
-                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(150)"/>
-                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(180)"/>
-                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(210)"/>
-                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(240)"/>
-                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(270)"/>
-                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(300)"/>
-                <rect x="-5" y="-36" width="10" height="26" rx="5" fill="#D97548" transform="rotate(330)"/>
-              </g>
-            </svg>
+          <div class="tool-logo-svg tool-logo-notebooklm">
+            <img src="images/logo-notebooklm.png" alt="NotebookLM" onerror="this.style.display='none'" />
           </div>
           <div class="tool-name">NotebookLM</div>
         </div>
@@ -964,22 +949,8 @@
       <!-- Claude (featured) -->
       <div class="tool-card featured" style="cursor:default;">
         <div class="tool-header">
-          <div class="tool-logo-svg" style="background:#FFF4EE;">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <rect width="100" height="100" rx="22" fill="#FFF4EE"/>
-              <g transform="translate(50,50)">
-                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(0)"/>
-                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(36)"/>
-                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(72)"/>
-                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(108)"/>
-                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(144)"/>
-                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(180)"/>
-                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(216)"/>
-                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(252)"/>
-                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(288)"/>
-                <rect x="-5.5" y="-36" width="11" height="26" rx="5.5" fill="#D97548" transform="rotate(324)"/>
-              </g>
-            </svg>
+          <div class="tool-logo-svg tool-logo-claude">
+            <img src="images/logo-claude.png" alt="Claude" onerror="this.style.display='none'" />
           </div>
           <div>
             <div class="tool-tag">Главный инструмент</div>
@@ -987,27 +958,26 @@
           </div>
         </div>
         <p class="tool-desc">«Папа» всех AI-инструментов для глубокой проработки спецификаций продукта: технические задания, диаграммы, детальный backlog и roadmap. Лучший на рынке для длинных технических документов — не теряет контекст в диалоге.</p>
-        <div style="display:flex;flex-direction:column;gap:8px;">
-          <a href="https://claude.ai/new" target="_blank" class="tool-link">Открыть Claude</a>
-          <a href="https://mermaid.live/" target="_blank" class="tool-extra-link">↗ Mermaid Live — рендеринг диаграмм</a>
-        </div>
+        <a href="https://claude.ai/new" target="_blank" class="tool-link">Открыть Claude</a>
       </div>
+
+      <!-- Mermaid -->
+      <a href="https://mermaid.live/" target="_blank" class="tool-card">
+        <div class="tool-header">
+          <div class="tool-logo-svg tool-logo-mermaid">
+            <img src="images/logo-mermaid.png" alt="Mermaid" onerror="this.style.display='none'" />
+          </div>
+          <div class="tool-name">Mermaid</div>
+        </div>
+        <p class="tool-desc">Текстовый язык для создания диаграмм прямо в Markdown. Генерируйте код через Claude — и рендерите в Mermaid Live. Flow, ER, Sequence диаграммы за минуты.</p>
+        <span class="tool-link">Открыть Mermaid Live</span>
+      </a>
 
       <!-- Manus -->
       <a href="https://manus.im/app" target="_blank" class="tool-card">
         <div class="tool-header">
-          <div class="tool-logo-svg">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <rect width="100" height="100" rx="22" fill="#fff"/>
-              <!-- Snap fingers outline -->
-              <path d="M54 72 C48 72 40 68 36 60 C30 52 28 44 30 36 C31 30 36 28 41 30 C43 26 48 24 52 26 C54 22 59 21 63 24 C65 20 70 21 72 24 C75 21 80 23 80 28 L80 52 C80 64 72 72 60 72 Z" fill="none" stroke="#1A1A2E" stroke-width="7" stroke-linejoin="round"/>
-              <path d="M41 30 L41 42" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/>
-              <path d="M52 26 L52 40" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/>
-              <path d="M63 24 L63 40" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/>
-              <path d="M72 24 L72 42" stroke="#1A1A2E" stroke-width="7" stroke-linecap="round"/>
-              <line x1="56" y1="18" x2="52" y2="12" stroke="#1A1A2E" stroke-width="6" stroke-linecap="round"/>
-              <line x1="64" y1="16" x2="62" y2="10" stroke="#1A1A2E" stroke-width="6" stroke-linecap="round"/>
-            </svg>
+          <div class="tool-logo-svg tool-logo-manus">
+            <img src="images/logo-manus.png" alt="Manus" onerror="this.style.display='none'" />
           </div>
           <div class="tool-name">Manus</div>
         </div>
@@ -1018,22 +988,8 @@
       <!-- Kimi -->
       <a href="https://www.kimi.com/" target="_blank" class="tool-card">
         <div class="tool-header">
-          <div class="tool-logo-svg">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <rect width="100" height="100" rx="22" fill="#EEF1FF"/>
-              <!-- Whale body -->
-              <ellipse cx="50" cy="56" rx="34" ry="26" fill="#5B7CF6"/>
-              <!-- Tail -->
-              <path d="M74 36 Q84 22 88 18 Q82 28 78 38Z" fill="#5B7CF6"/>
-              <path d="M74 36 Q88 32 92 30 Q84 40 76 40Z" fill="#5B7CF6"/>
-              <!-- Belly -->
-              <ellipse cx="38" cy="54" rx="15" ry="9" fill="white" transform="rotate(-15,38,54)"/>
-              <!-- Eye -->
-              <circle cx="60" cy="47" r="4.5" fill="white"/>
-              <circle cx="61" cy="46" r="2.5" fill="#5B7CF6"/>
-              <!-- Fin -->
-              <path d="M22 70 Q16 82 12 86 Q18 78 26 72Z" fill="#5B7CF6"/>
-            </svg>
+          <div class="tool-logo-svg tool-logo-kimi">
+            <img src="images/logo-kimi.png" alt="Kimi" onerror="this.style.display='none'" />
           </div>
           <div class="tool-name">Kimi</div>
         </div>
@@ -1185,8 +1141,8 @@
             <span class="portfolio-card-link">Смотреть запись →</span>
           </a>
           <a href="https://vk.com/video-230108642_456239020" target="_blank" class="portfolio-card">
-            <div class="portfolio-card-title">🏢 Митапы Газпромнефть</div>
-            <p class="portfolio-card-desc">Ускорение проектных задач с AI. Корпоративный митап для команд.</p>
+            <div class="portfolio-card-title">🏢 Воркшоп Газпромнефть</div>
+            <p class="portfolio-card-desc">Ускорение проектных задач с AI. Корпоративный воркшоп для команд.</p>
             <span class="portfolio-card-link">Смотреть запись →</span>
           </a>
           <a href="https://t.me/pruduct_24/1013" target="_blank" class="portfolio-card">
@@ -1199,7 +1155,7 @@
             <p class="portfolio-card-desc">За 2 дня создать прототипы AI-продуктов для реальных задач компании.</p>
             <span class="portfolio-card-link">На сайт →</span>
           </a>
-          <a href="https://vk.com/video-230108642_456239020" target="_blank" class="portfolio-card">
+          <a href="https://www.youtube.com/watch?v=s0Q6TeS1U4A" target="_blank" class="portfolio-card">
             <div class="portfolio-card-title">📐 Митап в Газпромнефти</div>
             <p class="portfolio-card-desc">Продуктовый подход для разработки AI-продуктов. Практика и кейсы.</p>
             <span class="portfolio-card-link">Смотреть →</span>
